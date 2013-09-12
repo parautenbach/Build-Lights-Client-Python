@@ -5,7 +5,7 @@ A Python build lights client that can receive build notifications from a notific
 
 # Installation 
 This details the steps for a Debian-based system, but it should be fairly easy to figure out the steps for a RedHat-based distro.
- # Dependencies
+## Dependencies
 * Python 2.7 or newer
 * `sudo apt-get install python-dev`
 * `sudo apt-get install libudev-dev`
@@ -16,7 +16,7 @@ This details the steps for a Debian-based system, but it should be fairly easy t
  * unzip and enter unzipped directory
  * `sudo python setup.py install`
 
- # Client
+## Client
 * Export this repo to `/usr/local/notifier_client`
 * `sudo cp /usr/local/notifier_client/51-blink1.rules /etc/udev/rules.d/`
 * `sudo chmod 755 /usr/local/notifier_client/src/whatsthatlight/notifier_client_console.py`
@@ -32,7 +32,7 @@ This details the steps for a Debian-based system, but it should be fairly easy t
 * `sudo start notifier_client_daemon`
 * `sudo tail -f /usr/local/notifier_client/src/whatsthatlight/notifier_client.log`
 
- # Mac OS X
+## Mac OS X
 Note: This is only a brief guidline until I've had time to test all of this properly.
 * Install the dependencies as for the Linux client, with the following exceptions:
  * There's no (direct) IOKit support in python, so don't install any of the udev packages. Instead, select the polling device monitor in `notifier_client.conf`.
