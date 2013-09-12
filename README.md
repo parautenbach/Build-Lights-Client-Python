@@ -11,8 +11,8 @@ This details the steps for a Debian-based system, but it should be fairly easy t
 * `sudo apt-get install libudev-dev`
 * `sudo apt-get install libusb-dev`
 * `sudo apt-get install python-pip` (or `sudo easy_install pip`)
-* `sudo apt-get install python-pyudev (or `sudo pip install pyudev`)
-* Download pyusb: http://sourceforge.net/projects/pyusb/
+* `sudo apt-get install python-pyudev` (or `sudo pip install pyudev`)
+* [Download pyusb](http://sourceforge.net/projects/pyusb/)
  * unzip and enter unzipped directory
  * `sudo python setup.py install`
 
@@ -23,7 +23,7 @@ This details the steps for a Debian-based system, but it should be fairly easy t
 * `sudo vi /usr/local/notifier_client/src/whatsthatlight/notifier_client.conf`
 * Under the `[client]` section:
  * Change username to your build server username (not your SVN or Git username)
- * Change address to your public IP (do not use 0.0.0.0 as the IP is sent to the server for registration)
+ * Change address to your public IP (do not use `0.0.0.0` as the IP is sent to the server for registration)
 * The pedantic ones can also copy `notifier_client.conf` to `/etc/`. If so, edit `notifier_client_daemon.conf` (below) so that the script can find this config file during start-up.
 * `sudo vi /usr/local/notifier_client/src/whatsthatlight/logger.conf`
 * Under `[handler_rotatingFileHandler]` set `args=('/var/log/notifier_client.log',)`
