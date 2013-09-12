@@ -19,18 +19,18 @@ This details the steps for a Debian-based system, but it should be fairly easy t
 ## Client
 * Export this repo to `/usr/local/notifier_client`
 * `sudo cp /usr/local/notifier_client/51-blink1.rules /etc/udev/rules.d/`
-* `sudo chmod 755 /usr/local/notifier_client/src/mxit/notifier_client_console.py`
-* `sudo vi /usr/local/notifier_client/src/mxit/notifier_client.conf`
+* `sudo chmod 755 /usr/local/notifier_client/src/whatsthatlight/notifier_client_console.py`
+* `sudo vi /usr/local/notifier_client/src/whatsthatlight/notifier_client.conf`
 * Under the `[client]` section:
 ** Change username to your build server username (not your SVN or Git username)
 ** Change address to your public IP (do not use 0.0.0.0 as the IP is sent to the server for registration)
 * The pedantic ones can also copy `notifier_client.conf` to `/etc/`. If so, edit `notifier_client_daemon.conf` (below) so that the script can find this config file during start-up.
-* `sudo vi /usr/local/notifier_client/src/mxit/logger.conf`
+* `sudo vi /usr/local/notifier_client/src/whatsthatlight/logger.conf`
 * Under `[handler_rotatingFileHandler]` set `args=('/var/log/notifier_client.log',)`
-* `sudo cp /usr/local/notifier_client/src/mxit/notifier_client_daemon.conf /etc/init/`
+* `sudo cp /usr/local/notifier_client/src/whatsthatlight/notifier_client_daemon.conf /etc/init/`
 * `sudo initctl reload-configuration`
 * `sudo start notifier_client_daemon`
-* `sudo tail -f /usr/local/notifier_client/src/mxit/notifier_client.log`
+* `sudo tail -f /usr/local/notifier_client/src/whatsthatlight/notifier_client.log`
 
 ## Mac OS X
 Note: This is only a brief guidline until I've had time to test all of this properly.
