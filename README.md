@@ -13,8 +13,8 @@ This details the steps for a Debian-based system, but it should be fairly easy t
 * `sudo apt-get install python-pip` (or `sudo easy_install pip`)
 * `sudo apt-get install python-pyudev (or `sudo pip install pyudev`)
 * Download pyusb: http://sourceforge.net/projects/pyusb/
-** unzip and enter unzipped directory
-** `sudo python setup.py install`
+ * unzip and enter unzipped directory
+ * `sudo python setup.py install`
 
 ## Client
 * Export this repo to `/usr/local/notifier_client`
@@ -22,8 +22,8 @@ This details the steps for a Debian-based system, but it should be fairly easy t
 * `sudo chmod 755 /usr/local/notifier_client/src/whatsthatlight/notifier_client_console.py`
 * `sudo vi /usr/local/notifier_client/src/whatsthatlight/notifier_client.conf`
 * Under the `[client]` section:
-** Change username to your build server username (not your SVN or Git username)
-** Change address to your public IP (do not use 0.0.0.0 as the IP is sent to the server for registration)
+ * Change username to your build server username (not your SVN or Git username)
+ * Change address to your public IP (do not use 0.0.0.0 as the IP is sent to the server for registration)
 * The pedantic ones can also copy `notifier_client.conf` to `/etc/`. If so, edit `notifier_client_daemon.conf` (below) so that the script can find this config file during start-up.
 * `sudo vi /usr/local/notifier_client/src/whatsthatlight/logger.conf`
 * Under `[handler_rotatingFileHandler]` set `args=('/var/log/notifier_client.log',)`
@@ -35,7 +35,7 @@ This details the steps for a Debian-based system, but it should be fairly easy t
 ## Mac OS X
 Note: This is only a brief guidline until I've had time to test all of this properly.
 * Install the dependencies as for the Linux client, with the following exceptions:
-** There's no (direct) IOKit support in python, so don't install any of the udev packages. Instead, select the polling device monitor in `notifier_client.conf`.
-** `libusb` has to be installed using homebrew (or macports).
+ * There's no (direct) IOKit support in python, so don't install any of the udev packages. Instead, select the polling device monitor in `notifier_client.conf`.
+ * `libusb` has to be installed using homebrew (or macports).
 * Install the software to `/Library/LaunchDaemons/notifier_client/`.
 * OS X does not use upstart for daemons, but LaunchDaemon. You need to create a `/Library/LaunchDaemons/notifier_client/notifier_client.plist` file, reload it with `launchctl` and start it with `launchd`.
