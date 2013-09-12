@@ -4,7 +4,7 @@ Build Lights Client (Python)
 A Python build lights client that can receive build notifications from a notification server connected to a build server.
 
 # Installation 
-This version details the steps for a Debian-based system, but it should be fairly easy to figure out the steps for a RedHat-based distro.
+This details the steps for a Debian-based system, but it should be fairly easy to figure out the steps for a RedHat-based distro.
 ## Dependencies
 * Python 2.7 or newer
 * `sudo apt-get install python-dev`
