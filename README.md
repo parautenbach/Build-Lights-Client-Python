@@ -6,7 +6,6 @@ A Python build lights client that can receive build notifications from a notific
 # Installation 
 This details the steps for a Debian-based system, but it should be fairly easy to figure out the steps for a RedHat-based distro.
 ## Dependencies
-* Eclipse (Indigo or newer)
 * Python 2.7 or newer
 * `sudo apt-get install python-dev`
 * `sudo apt-get install libudev-dev`
