@@ -1,0 +1,118 @@
+Minimum Py requirement
+1. Python 2.7
+
+Dependencies (install as root or with sudo)
+1. apt-get install python-dev
+2. apt-get install libudev-dev
+3. apt-get install libusb-dev
+3.1. On OS X: http://houseoflaudanum.com/navigate/howtos/pyusb-on-os-x/ or
+              http://www.ellert.se/twain-sane/ (*)
+              https://github.com/signal11/hidapi/downloads
+4. apt-get install python-pip
+5. apt-get install python-daemon
+6. pip install pyusb (OR TeensyRawhid (dl zip ihowson) OR ...) (Teensy works on OSX too)
+   * pyusb: If it cannot find usb.core, install from source (pyusb-1.0.0a2) 
+   * TeensyRawhid: sudo apt-get install libusb-dev
+7. python-pyudev (apt-get; might be old) or pip install pyudev (latest)
+
+Software installation (as root)
+1. Extract downloaded package to /usr/local/notifier_client/
+   * From SVN: sudo svn export --force http://svn/svn/dev/tools/continuous_integration/build_lights/teamcity_notifier_client_py/trunk /usr/local/notifier_client/
+2. Install udev rules (instructions in 51-blink1.rules)
+
+Daemon installation
+1. sudo chmod u+x /usr/local/notifier_client/src/whatsthatlight/notifier_client_daemon.py
+2. Copy src/whatsthatlight/notifier_client_daemon.conf (py?) to /etc/init/ (not init.d)
+3. Install with: sudo initctl reload-configuration
+4. Start with: sudo start notifier_client_daemon
+
+Tests
+Env: Eclipse, Subclipse, PyDev, pep8
+1. apt-get install pep8
+2. pip install NoseXUnit
+   ALT: apt-get install python-nose (might be old); pip install nose
+3. pip install coverage (v 2.85 installed in 3 is problematic; use --upgrade?)
+4. pip install teamcity-nose
+5. pip install mockito
+
+Other
+1. chmod +x
+2. udev rules (http://www.mutexlabs.com/c/TeensyRawhid/index.html)
+              (https://github.com/ihowson/Teensy-Raw-HID-in-Python/blob/master/teensy_loader_cli/49-teensy.rules)
+2.1. SUBSYSTEMS=="usb", ATTRS{idVendor}=="16c0", ATTRS{idProduct}=="8000", MODE:="0666"
+2.2. include this file
+2.3. Re plugin device for rules to take effect
+     /lib/udev/rules.d/ for packages
+     /etc/udev/rules.d/ for custom
+
+======================================================================
+
+Notes
+pip install pyutmp (login management)
+pyusb 1.0.0a2
+dbus
+x11/xlib events (xsm?)
+
+======================================================================
+
+X11 sessions: 
+ck-list-sessions (consolekit)
+getent passwd 1000
+uid=`ck-list-sessions |grep unix-user |awk '{print $3}' |awk -F \' '{print $2}'` && echo `getent passwd $uid` |awk -F : '{print $1}'
+
+======================================================================
+
+Debug tools:
+lsusb -vv
+sudo apt-get install linux-headers-3.0.0-17 (not confirmed)
+lsmod, modprobe, strace, ltrace
+
+======================================================================
+
+.NET
+http://bytes.com/topic/net/answers/102489-how-detect-usb-device-being-plugged-unplugged
+
+======================================================================
+
+Finding public IP address:
+- netifaces
+- netinfo
+- http://ayaz.wordpress.com/2011/04/09/get-all-public-interface-ips-on-a-system-using-python/
+- http://code.google.com/p/python-ifconfig/
+
+======================================================================
+
+PyHID:
+1. export arch env var
+2. sudo
+http://stackoverflow.com/questions/2088569/how-do-i-force-python-to-be-32-bit-on-snow-leopard-and-other-32-bit-64-bit-quest
+
+lsusb => system_profiler SPUSBDataType (on mac)
+
+======================================================================
+
+USB setup on Mac:
+1. Install macports:
+   http://ruby.heisfelix.com/2012/09/missing-usbh-for-blinky-on-you-mac.html
+1.1. If port command not found:
+     http://superuser.com/questions/287713/sudo-port-command-not-found-after-installing-macports-on-snow-leopard
+2. Install libusb:
+   http://www.ellert.se/twain-sane/
+    
+OR
+1. sudo pip install Cython
+2. sudo apt-get install libusb-1.0-0-dev (libusb-config --libs)
+3. Download https://github.com/gbishop/cython-hidapi
+3.1. sudo python setup-mac.py build
+3.2. sudo python setup-mac.py install
+
+ldd, nm, i386, arch -i386
+dpkg -L libusb-1.0-0
+sudo apt-get install libusb-1.0-0:i386
+pkg-config --libs libusb
+
+======================================================================
+
+cython-hidapi works on OSX
+
+======================================================================
