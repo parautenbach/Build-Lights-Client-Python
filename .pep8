@@ -1,0 +1,6 @@
+[pep8]
+show-source=1
+statistics=1
+filename=*.py
+ignore=E125
+
