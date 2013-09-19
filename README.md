@@ -16,6 +16,8 @@ This details the steps for a Debian-based system, but it should be fairly easy t
  * unzip and enter unzipped directory
  * `sudo python setup.py install`
 
+Ensure that your firewall allows for inbound connections on port 9191 and outbound connections on port 9192.
+
 ## Client
 * Export this repo to `/usr/local/notifier_client`
 * `sudo cp /usr/local/notifier_client/51-blink1.rules /etc/udev/rules.d/`
